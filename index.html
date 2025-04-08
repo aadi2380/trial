@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>From Adi to Tanvi 💙</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #aad8ff;
+    }
+    .message {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 20px;
+      color: #e0f7ff;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #4682b4;
+    }
+    .surprise {
+      display: none;
+      font-size: 1.4rem;
+      margin-top: 25px;
+      color: #ffffff;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hearts span {
+      position: absolute;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: #aad8ff;
+      border-radius: 50%;
+      animation: floatHearts 5s linear infinite;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Tanvi 💙</h1>
+  <div class="message">
+    I just wanted to remind you... how truly amazing you are.<br>
+    You bring joy, calm, and love into my life in ways I never imagined. <br>
+    Here's something from my heart. Just for you.
+  </div>
+  <button onclick="showSurprise()">Click Me 💌</button>
+  <div class="surprise" id="surpriseMessage">
+    You're my favorite person, and I can't wait to make more memories with you 💙<br>
+    – Yours always, Adi 💫
+  </div>
+
+  <!-- Light Floating Hearts -->
+  <div class="hearts"></div>
+
+  <script>
+    function showSurprise() {
+      document.getElementById("surpriseMessage").style.display = "block";
+    }
+
+    // Generate floating circles
+    const heartsContainer = document.querySelector('.hearts');
+    for (let i = 0; i < 30; i++) {
+      const span = document.createElement('span');
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = 2 + Math.random() * 4 + 's';
+      span.style.width = span.style.height = 8 + Math.random() * 10 + 'px';
+      heartsContainer.appendChild(span);
+    }
+  </script>
+</body>
+</html>
