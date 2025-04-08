@@ -1,123 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>From Adi to Tanvi 💙</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- AOS for scroll animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      background: #121212;
       color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      height: 100vh;
-      overflow: hidden;
+      line-height: 1.7;
+    }
+
+    section {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
     }
+
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #aad8ff;
-    }
-    .message {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 20px;
-      color: #e0f7ff;
-    }
-    button {
-      margin-top: 30px;
-      padding: 12px 25px;
-      font-size: 16px;
-      background-color: #1e90ff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #4682b4;
-    }
-    .surprise {
-      display: none;
-      font-size: 1.4rem;
-      margin-top: 25px;
-      color: #ffffff;
-      font-weight: bold;
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      color: #ffccff;
     }
 
-    .hearts {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .message {
+      max-width: 600px;
+      font-size: 1.2rem;
+      color: #e0e0e0;
+    }
+
+    .highlight {
+      color: #b388ff;
+    }
+
+    .bg-blur {
+      position: fixed;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(circle at center, #222 10%, #111 90%);
     }
 
-    .hearts span {
-      position: absolute;
-      display: block;
-      width: 10px;
-      height: 10px;
-      background: #aad8ff;
-      border-radius: 50%;
-      animation: floatHearts 5s linear infinite;
+    audio {
+      display: none;
     }
 
-    @keyframes floatHearts {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
       }
-      100% {
-        transform: translateY(-800px) scale(0.5);
-        opacity: 0;
+
+      .message {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Hey Tanvi 💙</h1>
-  <div class="message">
-    I just wanted to remind you... how truly amazing you are.<br>
-    You bring joy, calm, and love into my life in ways I never imagined. <br>
-    Here's something from my heart. Just for you.
-  </div>
-  <button onclick="showSurprise()">Click Me 💌</button>
-  <div class="surprise" id="surpriseMessage">
-    You're my favorite person, and I can't wait to make more memories with you 💙<br>
-    – Yours always, Adi 💫
-  </div>
 
-  <!-- Light Floating Hearts -->
-  <div class="hearts"></div>
+  <div class="bg-blur"></div>
 
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+  </audio>
+
+  <section data-aos="fade-up">
+    <h1>Hi Tanvi 💙</h1>
+    <p class="message">From the moment we met, you’ve been my sunshine in the dark. Every laugh, every word, every look — <span class="highlight">means the world to me</span>.</p>
+  </section>
+
+  <section data-aos="fade-right">
+    <h1>You're Special 🌙</h1>
+    <p class="message">In this chaotic world, your presence is my calm. <span class="highlight">Thank you</span> for being you. You’re more than words can say.</p>
+  </section>
+
+  <section data-aos="zoom-in">
+    <h1>Together Always 💫</h1>
+    <p class="message">No matter where we are, what we do — one thing stays true: <span class="highlight">You + Me = Forever</span>.</p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h1>With Love,</h1>
+    <p class="message"><span class="highlight">Adi ❤️</span></p>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    function showSurprise() {
-      document.getElementById("surpriseMessage").style.display = "block";
-    }
-
-    // Generate floating circles
-    const heartsContainer = document.querySelector('.hearts');
-    for (let i = 0; i < 30; i++) {
-      const span = document.createElement('span');
-      span.style.left = Math.random() * 100 + 'vw';
-      span.style.animationDuration = 2 + Math.random() * 4 + 's';
-      span.style.width = span.style.height = 8 + Math.random() * 10 + 'px';
-      heartsContainer.appendChild(span);
-    }
+    AOS.init({
+      duration: 1200,
+    });
   </script>
 </body>
 </html>
